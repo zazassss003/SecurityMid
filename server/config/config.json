@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": "aaa93119",
-    "database": "demoDB",
-    "host": "127.0.0.1",
+    "database": "demodb",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

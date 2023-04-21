@@ -1,49 +1,57 @@
-import React from 'react'
-import { Formik, Form, Field, ErrorMessage } from "formik"
-import * as Yup from "yup"
-import axios from "axios"
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
 function Registration() {
-    const initialValue = {
-        username: "",
-        password: "",
-    }
-    const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3).max(10).required(),
-        password: Yup.string().min(4).max(15).required()
-    })
+  const initialValues = {
+    username: "",
+    password: "",
+  };
 
-    const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then(() => {
-            console.log(data)
-        })
-    }
-    return (
-        <div>
-            <Formik
-                initialValues={initialValue}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-            >
-                <Form className="formContainer">
-                    <label>Username: </label>
-                    <ErrorMessage name="username" component="span" />
-                    <Field
-                        id="inputCreat" //CSS purpose
-                        name="username"
-                        placeholder="Ex. john" />
-                    <label>Password:</label>
-                    <ErrorMessage name="password" component="span" />
-                    <Field
-                        id="inputCreat" //CSS purpose
-                        type="password"
-                        name="password"
-                        placeholder="Your password" />
-                    <button type="submit"> Register </button>
-                </Form>
-            </Formik>
-        </div>
-    )
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().min(3).max(15).required(),
+    password: Yup.string().min(4).max(20).required(),
+  });
+
+  const onSubmit = (data) => {
+    axios.post("https://r10921a22.140-112-18-210.nip.io/auth", data).then(() => {
+      console.log(data);
+    });
+  };
+
+  return (
+    <div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form className="formContainer">
+          <label>Username: </label>
+          <ErrorMessage name="username" component="span" />
+          <Field
+            autocomplete="off"
+            id="inputCreatePost"
+            name="username"
+            placeholder="(Ex. John123...)"
+          />
+
+          <label>Password: </label>
+          <ErrorMessage name="password" component="span" />
+          <Field
+            autocomplete="off"
+            type="password"
+            id="inputCreatePost"
+            name="password"
+            placeholder="Your Password..."
+          />
+
+          <button type="submit"> Register</button>
+        </Form>
+      </Formik>
+    </div>
+  );
 }
 
-export default Registration
+export default Registration;
