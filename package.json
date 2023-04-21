@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install:all": "cd client && npm install -g npm@9.6.5 && npm audit fix --force && cd ../server && npm install -g npm@9.6.5",
+    "install:all": "cd client && npm install  && npm audit fix --force && cd ../server && npm install && npm audit fix --force",
     "start": "cd server && npm start",
     "build": "cd client && npm start"  
   },
