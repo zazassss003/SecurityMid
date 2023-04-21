@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && react-scripts start",
-    "build": "cd client && nodemon index.js"  
+    "start": "cd server && nodemon index.js",
+    "build": "cd client && react-scripts start"  
   },
   "repository": {
     "type": "git",
